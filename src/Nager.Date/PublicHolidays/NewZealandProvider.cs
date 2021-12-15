@@ -10,7 +10,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// New Zealand
     /// </summary>
-    public class NewZealandProvider : IPublicHolidayProvider
+    public class NewZealandProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -21,6 +21,30 @@ namespace Nager.Date.PublicHolidays
         public NewZealandProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
+        }
+
+        ///<inheritdoc/>
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "NZ-AUK", "Auckland" },
+                { "NZ-BOP", "Bay of Plenty" },
+                { "NZ-CAN", "Canterbury" },
+                { "NZ-CIT", "Chatham Islands Territory" },
+                { "NZ-GIS", "Gisborne" },
+                { "NZ-HKB", "Hawke's Bay" },
+                { "NZ-MBH", "Marlborough" },
+                { "NZ-MWT", "Manawatu-Wanganui" },
+                { "NZ-NSN", "Nelson" },
+                { "NZ-NTL", "Northland" },
+                { "NZ-OTA", "Otago" },
+                { "NZ-STL", "Southland" },
+                { "NZ-TKI", "Taranaki" },
+                { "NZ-WGN", "Wellington" },
+                { "NZ-WKO", "Waikato" },
+                { "NZ-WTC", "West Coast" }
+            };
         }
 
         ///<inheritdoc/>

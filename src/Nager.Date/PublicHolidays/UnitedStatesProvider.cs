@@ -10,7 +10,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// United States of America
     /// </summary>
-    public class UnitedStatesProvider : IPublicHolidayProvider
+    public class UnitedStatesProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -20,6 +20,52 @@ namespace Nager.Date.PublicHolidays
         public UnitedStatesProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
+        }
+
+        ///<inheritdoc/>
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "US-AL", "Alabama" },
+                { "US-AZ", "Arizona" },
+                { "US-CO", "Colorado" },
+                { "US-CT", "Connecticut" },
+                { "US-DC", "District of Columbia" },
+                { "US-DE", "Delaware" },
+                { "US-GA", "Georgia" },
+                { "US-HI", "Hawaii" },
+                { "US-IA", "Iowa" },
+                { "US-ID", "Idaho" },
+                { "US-IL", "Illinois" },
+                { "US-IN", "Indiana" },
+                { "US-KS", "Kansas" },
+                { "US-KY", "Kentucky" },
+                { "US-LA", "Louisiana" },
+                { "US-MA", "Massachusetts" },
+                { "US-MD", "Maryland" },
+                { "US-ME", "Maine" },
+                { "US-MO", "Missouri" },
+                { "US-MS", "Mississippi" },
+                { "US-MT", "Montana" },
+                { "US-NC", "North Carolina" },
+                { "US-ND", "North Dakota" },
+                { "US-NE", "Nebraska" },
+                { "US-NH", "New Hampshire" },
+                { "US-NJ", "New Jersey" },
+                { "US-NM", "New Mexico" },
+                { "US-NY", "New York" },
+                { "US-OH", "Ohio" },
+                { "US-OK", "Oklahoma" },
+                { "US-PA", "Pennsylvania" },
+                { "US-RI", "Rhode Island" },
+                { "US-SC", "South Carolina" },
+                { "US-TN", "Tennessee" },
+                { "US-TX", "Texas" },
+                { "US-UT", "Utah" },
+                { "US-VA", "Virginia" },
+                { "US-WV", "West Virginia" }
+            };
         }
 
         ///<inheritdoc/>

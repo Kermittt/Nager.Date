@@ -8,7 +8,7 @@ namespace Nager.Date.PublicHolidays
     /// <summary>
     /// France
     /// </summary>
-    public class FranceProvider : IPublicHolidayProvider
+    public class FranceProvider : IPublicHolidayProvider, ICountyProvider
     {
         private readonly ICatholicProvider _catholicProvider;
 
@@ -19,6 +19,20 @@ namespace Nager.Date.PublicHolidays
         public FranceProvider(ICatholicProvider catholicProvider)
         {
             this._catholicProvider = catholicProvider;
+        }
+
+        ///<inheritdoc/>
+        public IDictionary<string, string> GetCounties()
+        {
+            return new Dictionary<string, string>
+            {
+                { "FR-57", "Moselle" },
+                { "FR-A", "Alsace" },
+                { "FR-BL", "Saint-Barthélemy" },
+                { "FR-GP", "Guadeloupe" },
+                { "FR-MF", "Saint-Martin" },
+                { "FR-MQ", "Martinique" }
+            };
         }
 
         ///<inheritdoc/>
